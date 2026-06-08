@@ -13,10 +13,6 @@ Pipeline ETL que transforma datos crudos de ventas, detalle de ventas y producto
 * 🔄 ETL Automatizado - Pipeline completo con despliegue automático via GitHub Actions
 * 🏗️ Arquitectura Medallion - Separación clara de capas Bronze → Silver → Gold
 * 📊 Modelo Dimensional - Star Schema optimizado para análisis de negocio
-* 🚀 CI/CD Integrado - Deploy automático en cada push a master
-* 📈 Databricks Dashboards - Visualización
-* ⚡ Delta Lake - ACID transactions y time travel capabilities
-* 🔔 Monitoreo - Notificaciones automáticas y logs detallados
 
 ## 🏛️ Arquitectura
 
@@ -60,7 +56,7 @@ git push origin master
 ```
 
 **GitHub Actions ejecutará**:
-- 📤 Deploy de notebooks a `/Workspace/databricks_project/proceso`
+- 📤 Deploy de notebooks a `/Workspace/PROYECTOFINALETL/proceso`
 - 🔧 Creación del workflow `WF_ToPVentasProductos`
 - ▶️ Ejecución completa:  Bronze → Silver → Gold
 - 📧 Notificaciones de resultados
@@ -78,17 +74,10 @@ git push origin master
 Navegar a `/Workspace/databricks_project/proceso` y ejecutar en orden:
 
 ```
-- 0_preparacion_ambiente.py         → Crear esquema
-- 1_ingest_ciclo.py                 → Bronze Layer
-- 1_ingest_matricula.py             → Bronze Layer
-- 1_ingest_programa.py              → Bronze Layer
-- 2_transform_mat_escuela.py        → Silver Layer
-- 2_transform_prog_estatus.py       → Silver Layer
-- 3_load.py                         → Gold Layer
-```
-
----
-
+- 0_preparacion_ambiente.py         
+- 1_ingest_Ventas_Data.py                
+- 2_ingest_detalleVentas_Data.py             
+- 3_insert_Productos.py              
 
 ### 🔄  Workflow Databricks
 ![Texto descriptivo](evidencias/WF_ToPVentasProductos.png)
